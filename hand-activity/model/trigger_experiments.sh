@@ -1,0 +1,6 @@
+python ./standard-model.py --batch_size 16 --model 'laput' --experiment_name 'batch_16'
+python ./standard-model.py --batch_size 32 --model 'laput' --experiment_name 'batch_32'
+python ./standard-model.py --batch_size 64 --model 'laput' --experiment_name 'batch_64'
+python ./standard-model.py --batch_size 128 --model 'laput' --experiment_name 'batch_128'
+python ./standard-model.py --batch_size 256 --model 'laput' --experiment_name 'batch_256'
+python ./standard-model.py --batch_size 512 --model 'laput' --experiment_name 'batch_512'
