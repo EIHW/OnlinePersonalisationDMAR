@@ -9,13 +9,15 @@ import json
 import csv
 from pprint import pprint
 import argparse
+from utils import make_directory
 
-data_path_split = '/mnt/data/hand-activity-data/extracted-features/'
-data_path_y_split = '/mnt/data/hand-activity-data/split/'
+#data_path_split = '/mnt/data/hand-activity-data/extracted-features/'
+data_path_split = "data/hand-activity/extracted_features/"
+data_path_y_split = 'data/hand-activity/restructured_data/'
 
 parser = argparse.ArgumentParser(description='')
 
-parser.add_argument('--classifier', type=str, default='rf', help='classifier to use, options: rf, svm, pac')
+parser.add_argument('--classifier', type=str, default='pac', help='classifier to use, options: rf, svm, pac')
 parser.add_argument('--num_samples', type=int, default=200, help='Number of samples per class for online learning')
 parser.add_argument('--classes_to_remove', type=int, default=0, help='Number of classes to remove for online learning')
 parser.add_argument('--use_labels', type=bool, default=True, help='Use labels or use predictions of classifier for training')
@@ -158,7 +160,10 @@ csv_columns = [
     "accuracies_after",
 ]
 
-with open('runs/runs.csv', 'a') as csvfile:
+result_dir = "hand-activity/results/"
+make_directory(result_dir)
+
+with open(result_dir + f'results_{args["classifier"]}_{args["num_samples"]}.csv', 'a') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
     # writer.writeheader()
     writer.writerow(experiment_stats)

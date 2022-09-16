@@ -15,7 +15,8 @@ from tensorflow.keras.callbacks import TensorBoard
 from load_data import load_data
 from preprocessing import extract_features, extract_features_restructured, encode_labels
 from get_model import get_model
-
+from os import makedirs
+from os.path import exists
 
 parser = argparse.ArgumentParser(description='')
 
@@ -27,14 +28,19 @@ parser.add_argument('--batch_size', type=int, default=32, help='Batch size (Defa
 parser.add_argument('--learning_rate', type=float, default=0.0005, help='learning rate')
 parser.add_argument('--experiment_name', type=str, default='', help='Name of the experiment')
 parser.add_argument('--epochs', type=int, default=50, help='Number of Epochs to train')
+#parser.add_argument('--epochs', type=int, default=1, help='Number of Epochs to train')
 
 parsed_args = parser.parse_args()
 args = parsed_args.__dict__
 
 os.environ['CUDA_VISIBLE_DEVICES'] = str(args['gpu_number'])
+model_dir = "models/"
 
+def make_directory(dir):
+    if not exists(dir):
+        makedirs(dir)
 
-def save_results(model, log_dir, accuracy):
+def save_results(model, log_dir, model_dir, accuracy, iteration):
     """
     Saves all the relevant data for each run of the experiment:
     * script
@@ -43,10 +49,12 @@ def save_results(model, log_dir, accuracy):
     :param model: the fully trained keras model
     :return:
     """
+    make_directory(log_dir)
     save_model(model, log_dir + '/model.h5', save_format='h5')
-    copyfile('./run_experiment.py', log_dir + '/run_experiment.py')
-    copyfile('./get_model.py', log_dir + '/get_model.py')
-    copyfile('./load_data.py', log_dir + '/load_data.py')
+    save_model(model, model_dir + f'model_user{iteration}.h5', save_format='h5')
+    #copyfile('./run_experiment.py', log_dir + '/run_experiment.py')
+    #copyfile('./get_model.py', log_dir + '/get_model.py')
+    #copyfile('./load_data.py', log_dir + '/load_data.py')
     with open(log_dir + '/parameters.json', 'w') as f:
         json.dump(args, f)
     with open(log_dir + '/accuracy', 'w') as f:
@@ -105,7 +113,7 @@ for i in iterations:
 
     accuracy = H.history['val_categorical_accuracy'][-1]
     categorical_accuracies.append(accuracy)
-    save_results(model, log_dir, accuracy)
+    save_results(model, log_dir, model_dir, accuracy, i)
 
 # store avg accuracy over different rounds/users
 overall_results = {

@@ -1,0 +1,7 @@
+data/
+hand-activity/mnt/
+pamap2/mnt/
+models/
+runs/
+hand-activity/results/
+hand-activity/model/__pycache__/

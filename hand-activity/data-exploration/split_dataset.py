@@ -1,14 +1,16 @@
 import numpy as np
+from os.path import exists
+from os import makedirs
 
 # TODO:
-data_path = '/mnt/data/hand-activity-data/'
-save_path = './restructured_data/'
+data_path = 'data/hand-activity/'
+save_path = 'data/hand-activity/restructured_data/'
 
 
 def load_data_by_user(user):
-    x = np.load(data_path + 'users/features/U{}_features_X.npy'.format(user))
-    y = np.load(data_path + 'users/features/U{}_features_Y.npy'.format(user))
-    labels = np.load(data_path + 'users/features/U{}_features_labels.npy'.format(user))
+    x = np.load(data_path + 'features/U{}_features_X.npy'.format(user))
+    y = np.load(data_path + 'features/U{}_features_Y.npy'.format(user))
+    labels = np.load(data_path + 'features/U{}_features_labels.npy'.format(user))
     return x, y, labels
 
 
@@ -43,24 +45,34 @@ def get_round(spectrogram):
     raise ValueError('could not determine round of spectrogram.')
 
 
+def make_directory(dir):
+    if not exists(dir):
+        makedirs(dir)
+
 # loading the data of the different rounds. Hash and sort them for faster searching.
-round1 = np.load(data_path + 'rounds/round1_features_X.npy')
+print("loading round 1...")
+round1 = np.load(data_path + 'round1_features_X.npy')
 round1 = np.array([hash(bytes(v)) for v in round1])
 round1 = np.sort(round1)
 
-round2 = np.load(data_path + 'rounds/round2_features_X.npy')
+print("loading round 2...")
+round2 = np.load(data_path + 'round2_features_X.npy')
 round2 = np.array([hash(bytes(v)) for v in round2])
 round2 = np.sort(round2)
 
-round3 = np.load(data_path + 'rounds/round3_features_X.npy')
+print("loading round 3...")
+round3 = np.load(data_path + 'round3_features_X.npy')
 round3 = np.array([hash(bytes(v)) for v in round3])
 round3 = np.sort(round3)
 
-round4 = np.load(data_path + 'rounds/round4_features_X.npy')
+print("loading round 4...")
+round4 = np.load(data_path + 'round4_features_X.npy')
 round4 = np.array([hash(bytes(v)) for v in round4])
 round4 = np.sort(round4)
 
 datapoints_not_found = 0
+
+make_directory(save_path)
 
 # idea: iterate through the users, check in which round sample was recorded and safe it accordingly.
 for user in range(1, 13):
@@ -75,6 +87,8 @@ for user in range(1, 13):
         except ValueError:
             datapoints_not_found += 1
             continue
+
+    
 
     # then iterate through rounds and select relevant data to save
     for searched_round in range(1, 5):

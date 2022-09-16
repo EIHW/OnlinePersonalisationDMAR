@@ -3,14 +3,14 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from preprocessing import extract_features_restructured, encode_labels
 
-model_path = "/mnt/data/hand-activity-data/models/model_user1.h5"
+model_path = "data/hand-activity-data/models/model_user1.h5"
 # model_path = "/home/sysgen/workspace/hand-activity-data/models/model_user1.h5"
 
-data_path = '/mnt/data/hand-activity-data/users/features/'
-data_path_y = '/mnt/data/hand-activity-data/users/features/'
+data_path = 'data/hand-activity-data/users/features/'
+data_path_y = 'data/hand-activity-data/users/features/'
 
-data_path_split = '/mnt/data/hand-activity-data/split/'
-data_path_y_split = '/mnt/data/hand-activity-data/split/'
+data_path_split = 'data/hand-activity-data/split/'
+data_path_y_split = 'data/hand-activity-data/split/'
 
 
 def load_test_data(user):

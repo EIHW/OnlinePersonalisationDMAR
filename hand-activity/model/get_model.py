@@ -11,7 +11,7 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.models import clone_model, load_model
 
 # model_path = "/home/sysgen/workspace/hand-activity-data/models/model_hand-activities.h5"
-model_path = "/mnt/data/hand-activity-data/models/model_hand-activities.h5"
+model_path = "models/model_hand-activities.h5"
 
 
 def get_model(args):
@@ -50,6 +50,7 @@ def get_model_VGG16(args):
 
 def get_model_laput(args):
     model = load_model(model_path)
+    print("model loaded")
     # clone model to reinitialize weights
     model = clone_model(model)
     opt = Adam(lr=args['learning_rate'])
