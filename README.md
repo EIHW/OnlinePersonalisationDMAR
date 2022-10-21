@@ -25,20 +25,6 @@ See also:
 
 >Laput, G. and Harrison, C., 2019, May. Sensing fine-grained hand activity with smartwatches. In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (pp. 1-13).
 
-Reproduction:
-
-For the first phase, the following files are relevant:
-- `get_model.py`
-- `load_data.py`
-- `run_experiment.py`
-
-For the second phase the following files are used:
-- `extract_features.py`
-- `online_learning_experiment.py`
-- `trigger_online_experiments.sh`
-
-The code in this repository is divided into the two datasets used for experiments:
-
 
 **pamap2**
 
