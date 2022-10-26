@@ -5,3 +5,7 @@ models/
 runs/
 hand-activity/results/
 hand-activity/model/__pycache__/
+pamap2/model/__pycache__/
+pamap2/model/model_tmp.h5
+pamap2/replication/__pycache__/
+pamap2/replication/model.h5

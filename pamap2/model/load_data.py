@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-path = '/mnt/data/PAMAP2'
+path = 'data/pamap2/PAMAP2_Dataset'
 
 activities = [
     1,

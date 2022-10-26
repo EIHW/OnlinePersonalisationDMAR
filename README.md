@@ -1,7 +1,8 @@
 # Online Personalistaion of Deep Learning Classifiers
 > This repository is a subset of https://github.com/mberghofer/online-personalisation-of-dl-classifiers
 
-This repository hosts the code necessary to replicate the experiments of [TODO: add publication here].
+This repository hosts the code necessary to replicate the experiments of the paper titled. If you find the code useful or if you use it your research, please cite:
+[TODO: add publication here]
 
 The experimental design follows a two-phase approach. In the first part ("offline training") a deep learning classifier 
 is trained in a leave-one-subject-out manner. This classifier is then seperated in a deep feature extractor and a 
@@ -30,10 +31,9 @@ See also:
 
 - Download the pamap2 dataset (recorded by Reiss and Stricker) https://archive.ics.uci.edu/ml/datasets/pamap2+physical+activity+monitoring
 - Unzip all data files in `data/pamap2/`
-- Run `python hand-activity/data_exploration/split_dataset.py` to prepare the data for the target split. Data will be stored in `data/pamap2/restructured_data/`
-- Run `pamap2/model/run_experiment.py` to train the feature extractor in a loso manner. User-specific models and logs will be saved in the `models/` and runs/` directory.
+- Run `pamap2/replication/run_experiment.py` to train the feature extractor in a loso manner. User-specific models and logs will be saved in the `models/` and runs/` directory.
 - Run `pamap2/model/extract_features.py` to extract features with the deep feature extractor. Data will be stored in `data/pamap2/extracted_features/` 
-- Run `pamap2/model/online_learning_experiment.py` to extract features with the deep feature extractor to run the experiments for online personalisation models. Result will be saved in `hand-activity/results/`
+- Run `pamap2/model/online_learning_experiment.py` to extract features with the deep feature extractor to run the experiments for online personalisation models. Result will be saved in `pamap2/results/`
 
 
 

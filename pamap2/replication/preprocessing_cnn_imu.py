@@ -248,7 +248,7 @@ def process_dataset_file(data):
     return data_x, data_y
 
 
-def generate_data(dataset='/mnt/data/PAMAP2'):
+def generate_data(dataset='data/pamap2/PAMAP2_Dataset'):
     """Function to read the Pamap2 raw data and process the sensor channels
     of the protocol settings
 

@@ -5,7 +5,6 @@ import numpy as np
 from tensorflow.keras.models import save_model
 from numpy.lib.stride_tricks import as_strided as ast
 
-
 def norm_shape(shape):
     '''
     Normalize numpy array shapes so they're always expressed as a tuple,
@@ -160,4 +159,4 @@ H = model.fit(
 
 model.evaluate(x=x_test, y=y_test)
 
-save_model(model, './model.h5', save_format='h5')
+save_model(model, 'pamap2/replication/model.h5', save_format='h5')
