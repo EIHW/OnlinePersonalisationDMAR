@@ -7,8 +7,8 @@ from copy import deepcopy
 from tensorflow.keras.metrics import CategoricalAccuracy
 import tensorflow as tf
 
-data_path_split = '/mnt/data/hand-activity-data/svm_features/user1_model_split/'
-data_path_y_split = '/mnt/data/hand-activity-data/split/'
+#data_path_split = '/mnt/data/hand-activity-data/svm_features/user1_model_split/'
+#data_path_y_split = '/mnt/data/hand-activity-data/split/'
 
 use_labels = True
 
@@ -36,9 +36,9 @@ activities = [
 
 
 def load_train_data():
-    x_train = np.load('train.npy')
+    x_train = np.load('data/pamap2/train.npy')
     # _, y_train, _, _ = leave_user_out_data(5)
-    y_train = np.load('./train_y.npy')
+    y_train = np.load('data/pamap2/train_y.npy')
     return x_train, y_train
 
 
@@ -67,9 +67,9 @@ def split_test_set(x, y):
 
 
 def load_test_data():
-    x_online = np.load('test.npy')
+    x_online = np.load('data/pamap2/test.npy')
     # _, _, _, y_online = leave_user_out_data(5)
-    y_online = np.load('./test_y.npy')
+    y_online = np.load('data/pamap2/test_y.npy')
     #TODO: change back
     x_test, y_test, x_online, y_online = split_test_set(x_online, y_online)
 

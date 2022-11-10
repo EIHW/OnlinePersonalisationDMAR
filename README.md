@@ -31,7 +31,7 @@ See also:
 
 - Download the pamap2 dataset (recorded by Reiss and Stricker) https://archive.ics.uci.edu/ml/datasets/pamap2+physical+activity+monitoring
 - Unzip all data files in `data/pamap2/`
-- Run `pamap2/replication/run_experiment.py` to train the feature extractor in a loso manner. User-specific models and logs will be saved in the `models/` and runs/` directory.
+- Run `pamap2/model/run_experiment.py` to train the feature extractor. Models and logs will be saved in the `models/` and runs/` directory.
 - Run `pamap2/model/extract_features.py` to extract features with the deep feature extractor. Data will be stored in `data/pamap2/extracted_features/` 
 - Run `pamap2/model/online_learning_experiment.py` to extract features with the deep feature extractor to run the experiments for online personalisation models. Result will be saved in `pamap2/results/`
 

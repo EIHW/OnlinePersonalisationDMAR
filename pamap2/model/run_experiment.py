@@ -24,7 +24,7 @@ H = model.fit(
     batch_size=128,
 )
 
-save_model(model, 'pamap2/model/model_tmp.h5', save_format='h5')
+save_model(model, 'models/model_tmp.h5', save_format='h5')
 
 # np.set_printoptions(threshold=sys.maxsize)
 #
