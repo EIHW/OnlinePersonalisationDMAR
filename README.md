@@ -1,8 +1,8 @@
 # Online Personalistaion of Deep Learning Classifiers
-> This repository is a subset of https://github.com/mberghofer/online-personalisation-of-dl-classifiers
+> This repository is an adapted subset of https://github.com/mberghofer/online-personalisation-of-dl-classifiers
 
 This repository hosts the code necessary to replicate the experiments of the paper titled. If you find the code useful or if you use it your research, please cite:
-[TODO: add publication here]
+> Manuel Milling, Ilhan Aslan, Moritz Berghofer, Adria Mallol-Ragolta, Utkarsh Kunwar, and Björn Wolfgang Schuller. 2023. Online Personalisation of Deep Mobile Activity Recognisers. In Proceedings of the 7th International Workshop on Sensor-based Activity Recognition and Artificial Intelligence (iWOAR '22). Association for Computing Machinery, New York, NY, USA, Article 11, 1–7. https://doi.org/10.1145/3558884.3558896
 
 The experimental design follows a two-phase approach. In the first part ("offline training") a deep learning classifier 
 is trained in a leave-one-subject-out manner. This classifier is then seperated in a deep feature extractor and a 
